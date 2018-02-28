@@ -1,3 +1,4 @@
+<?php require_once "functions.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.php">Teletubbies</a></li>
-                <li><a href="kittens.php">Kittens</a></li>
-                <li><a href="ironmaiden.php">Iron Maiden</a></li>
-                <li><a href="tokyo.php">Tokyo</a></li>
+                <?php li('index.php', 'Teletubbies');?>
+                <?php li('kittens.php', 'Kittens');?>
+                <?php li('ironmaiden.php', 'Iron Maiden');?>
+                <?php li('tokyo.php', 'Tokyo');?>
             </ul>
         </div>
     </div>
