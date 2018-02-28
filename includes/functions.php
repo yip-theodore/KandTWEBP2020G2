@@ -5,7 +5,11 @@
  * Date: 28/02/2018
  * Time: 12:42
  */
-echo basename($_SERVER['PHP_SELF']);
+/**
+ * generates nav LI element
+ * @param string $page page name with .php at the end
+ * @param string $linkText text that goes in the link (d'uhhhh)
+ */
 function li($page, $linkText)
 {
     $active = "";
