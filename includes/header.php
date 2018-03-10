@@ -1,4 +1,6 @@
-<?php require_once "functions.php"?>
+<?php require_once "functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +17,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <?php li('index.php', 'Teletubbies');?>
-                <?php li('kittens.php', 'Kittens');?>
-                <?php li('ironmaiden.php', 'Iron Maiden');?>
-                <?php li('tokyo.php', 'Tokyo');?>
+<!--                --><?php //li('index.php', 'Teletubbies');?>
+<!--                --><?php //li('kittens.php', 'Kittens');?>
+<!--                --><?php //li('ironmaiden.php', 'Iron Maiden');?>
+<!--                --><?php //li('tokyo.php', 'Tokyo');?>
+                <?php navGen($content) ?>
             </ul>
         </div>
     </div>

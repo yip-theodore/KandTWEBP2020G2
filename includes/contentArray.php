@@ -24,13 +24,13 @@ $content = [
         "img-alt" => "Iron Maiden",
         "img-src" => "ironmaiden.jpg",
     ],
-//    "" => [
-//        "title" => "",
-//        "h1" => "",
-//        "p" => "",
-//        "span-class" => "",
-//        "span-text" => "",
-//        "img-alt" => "",
-//        "img-src" => "",
-//    ],
+    "kittens" => [
+        "title" => "Kittens",
+        "h1" => "Kittens",
+        "p" => "C'est bien.",
+        "span-class" => "label-success",
+        "span-text" => "oui",
+        "img-alt" => "three kittens",
+        "img-src" => "three_kittens.jpg",
+    ],
 ];
