@@ -29,7 +29,7 @@ function navGen($content)
 {
     foreach ($content as &$item) {
         $active = '';
-        if ($_GET['page'] === key($content)) {
+        if ( $_GET['page'] === key($content) || ( (!isset($_GET['page']) || !isset($content[$_GET['page']]) ) && key($content)==="el-miedo-de-los-teletubbies") ) {
             $active = ' class="active"';
         }
         ?>

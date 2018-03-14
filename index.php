@@ -25,6 +25,8 @@ if(null === $page){
     // renvoi du code http 404 si page demande inexistante
     http_response_code(404);
 }
+
+var_dump(!isset($content[$_GET['page']]));
 ?>
     <div class="container theme-showcase" role="main">
         <div class="jumbotron">
