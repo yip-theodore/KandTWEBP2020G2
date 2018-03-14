@@ -1,5 +1,4 @@
 <?php
-include "includes/header.php";
 require_once "includes/contentArray.php";
 /**
  * @ref http://php.net/manual/fr/function.http-response-code.php
@@ -24,6 +23,7 @@ if(null === $page){
     // renvoi du code http 404 si page demande inexistante
     http_response_code(404);
 }
+include "includes/header.php";
 ?>
     <div class="container theme-showcase" role="main">
         <div class="jumbotron">

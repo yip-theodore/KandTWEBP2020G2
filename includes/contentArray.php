@@ -14,6 +14,7 @@ $content = [
         "span-text" => "Danger",
         "img-alt" => "Teletubbies",
         "img-src" => "teletubbies.jpg",
+        "nav-title" => "Weeee",
     ],
     "not-ac-dc" => [
         "title" => "Iron Maiden!",
@@ -23,7 +24,17 @@ $content = [
         "span-text" => "SIX SIX SIX!!! the number of the beast!!",
         "img-alt" => "Iron Maiden",
         "img-src" => "ironmaiden.jpg",
+        "nav-title" => "W00000",
     ],
+//    "" => [
+//        "title" => "",
+//        "h1" => "",
+//        "p" => "",
+//        "span-class" => "",
+//        "span-text" => "",
+//        "img-alt" => "",
+//        "img-src" => "",
+//    ],
 //    "" => [
 //        "title" => "",
 //        "h1" => "",

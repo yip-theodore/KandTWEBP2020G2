@@ -15,10 +15,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <?php li('index.php', 'Teletubbies');?>
-                <?php li('kittens.php', 'Kittens');?>
-                <?php li('ironmaiden.php', 'Iron Maiden');?>
-                <?php li('tokyo.php', 'Tokyo');?>
+                <?php
+                //li('index.php', 'Teletubbies');
+                foreach($content as $pageSlug => $pageData){
+                    li($pageData['nav-title'], $pageSlug, $page);
+                }
+                ?>
             </ul>
         </div>
     </div>
