@@ -1,6 +1,4 @@
 <?php
-require_once "functions.php";
-require_once "connexion.php";
 $requete = "SELECT
   `nav-title`,
   `slug`
@@ -28,17 +26,10 @@ $stmt->execute();
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <?php
-                //li('index.php', 'Teletubbies');
-//                foreach($content as $pageSlug => $pageData){
-//                    li($pageData['nav-title'], $pageSlug, $page);
-//                }
-
-
+                while (false !== $nav = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    li($nav['nav-title'], $nav['slug'], $slug);
+                }
                 ?>
-                <?php while(false !== $raw = $stmt->fetch(PDO::FETCH_ASSOC)):
-//                    var_dump($row);
-                    li($raw['nav-title'], $raw['slug'], $slug);
-                endwhile;?>
             </ul>
         </div>
     </div>
