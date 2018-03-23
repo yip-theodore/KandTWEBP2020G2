@@ -1,4 +1,16 @@
-<?php require_once "functions.php"?>
+<?php
+require_once "functions.php";
+require_once "connexion.php";
+$requete = "SELECT
+  `nav-title`,
+  `slug`
+FROM
+  `content`
+;";
+$stmt = $conn->prepare($requete);
+$stmt->execute();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +29,16 @@
             <ul class="nav navbar-nav">
                 <?php
                 //li('index.php', 'Teletubbies');
-                foreach($content as $pageSlug => $pageData){
-                    li($pageData['nav-title'], $pageSlug, $page);
-                }
+//                foreach($content as $pageSlug => $pageData){
+//                    li($pageData['nav-title'], $pageSlug, $page);
+//                }
+
+
                 ?>
+                <?php while(false !== $raw = $stmt->fetch(PDO::FETCH_ASSOC)):
+//                    var_dump($row);
+                    li($raw['nav-title'], $raw['slug'], $slug);
+                endwhile;?>
             </ul>
         </div>
     </div>
