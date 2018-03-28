@@ -1,4 +1,3 @@
-<?php require_once "functions.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +14,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <?php
-                //li('index.php', 'Teletubbies');
-                foreach($content as $pageSlug => $pageData){
-                    li($pageData['nav-title'], $pageSlug, $page);
-                }
-                ?>
+                <?php displayNav(getNavData($pdo), $pageKey)?>
             </ul>
         </div>
     </div>
