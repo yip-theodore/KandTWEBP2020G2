@@ -8,17 +8,17 @@
 /**
  * generates nav LI element
  *
- * @param string $page page name with .php at the end
+ * @param string $slug page name with .php at the end
  * @param string $linkText text that goes in the link (d'uhhhh)
  */
-function li($page, $linkText)
+function li($slug, $linkText, $pageKey)
 {
     $active = "";
-    if($page === basename($_SERVER['PHP_SELF'])){
+    if($slug === $pageKey){
         $active = ' class="active"';
     }
 ?>
-    <li<?=$active?>><a href="<?=$page?>"><?=$linkText?></a></li>
+    <li<?=$active?>><a href="<?php printf("%s%s=%s", APP_URL_BASE, APP_PAGE_PARAM, $slug)?>"><?=$linkText?></a></li>
 <?php
 }
 
@@ -109,5 +109,20 @@ function handlePDOError(PDOStatement $stmt): void
 {
     if ($stmt->errorCode() != '00000') {
         throw new \Exception($stmt->errorInfo()[1]);
+    }
+}
+
+/**
+ * display navigation links
+ * @param array $navData
+ * @param string $pageKey
+ */
+function displayNav(array $navData, string $pageKey): void
+{
+    if (count($navData) === 0) {
+         die("No pages, d'uh");
+    }
+    foreach ($navData as $onePage) {
+        li($onePage['slug'], $onePage['nav-title'], $pageKey);
     }
 }

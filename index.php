@@ -1,13 +1,14 @@
 <?php
 require_once "includes/connection.php";
-include "includes/header.php";
+require_once "includes/functions.php";
+define('APP_DEFAULT_PAGE', 'el-miedo-de-los-teletubbies');
+define('APP_PAGE_PARAM', 'page');
+define('APP_URL_BASE', 'index.php?');
 //require_once "includes/contentArray.php";
 /**
  * @ref http://php.net/manual/fr/function.http-response-code.php
  */
 // gestion de la page par defaut (pas de param page= dans l'url
-define('APP_DEFAULT_PAGE', 'el-miedo-de-los-teletubbies');
-define('APP_PAGE_PARAM', 'page');
 // gestion de la page appelee (param page=)
 $pageKey = $_GET[APP_PAGE_PARAM] ?? APP_DEFAULT_PAGE;
 // get the page data from the database
@@ -22,6 +23,7 @@ try {
 } catch(\Exception $exception) {
     die("Ze pache you zearched vor iz not prezent");
 }
+include "includes/header.php";
 // factorisied the content display
 displayPage($page);
 include "includes/footer.php";
