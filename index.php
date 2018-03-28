@@ -7,24 +7,20 @@ include "includes/header.php";
  */
 // gestion de la page par defaut (pas de param page= dans l'url
 define('APP_DEFAULT_PAGE', 'el-miedo-de-los-teletubbies');
-// la page par defaut n'existe pas, horreur, malheur
-if (!isset($content[APP_DEFAULT_PAGE])) {
-    die('omfg');
-}
+define('APP_PAGE_PARAM', 'page');
 // gestion de la page appelee (param page=)
-$pageKey = $_GET['page'] ?? APP_DEFAULT_PAGE;
-if (!isset($content[$_GET['page']])) {
-    // recuperation de la page par defaut
-    $page = &$content[APP_DEFAULT_PAGE];
-} else {
-    // recuperation de la page demandee
-    $page = &$content[$pageKey] ?? null;
-}
-// gestion de l'affichage de la page par defaut si la page appelee n'existe pas (avec le status 404 http)
-if(null === $page){
-    // renvoi du code http 404 si page demande inexistante
-    http_response_code(404);
-    $page = &$content[$pageKey] ?? null;
+$pageKey = $_GET[APP_PAGE_PARAM] ?? APP_DEFAULT_PAGE;
+// get the page data from the database
+try {
+    $page = getPageContent($pdo, $pageKey);
+    // gestion de l'affichage de la page par defaut si la page appelee n'existe pas (avec le status 404 http)
+    if (is_null($page)) {
+        // recuperation de la page par defaut
+        http_response_code(404);
+        $page = getPageContent($pdo, APP_DEFAULT_PAGE);
+    }
+} catch(\Exception $exception) {
+    die("Ze pache you zearched vor iz not prezent");
 }
 // factorisied the content display
 displayPage($page);

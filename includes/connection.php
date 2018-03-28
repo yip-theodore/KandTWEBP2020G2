@@ -6,8 +6,8 @@
  * Time: 11:07
  */
 try {
-    $db = new PDO('mysql:host=localhost;dbname=kandtG2;port=3307', 'root','root');
+    $pdo = new PDO('mysql:host=localhost;dbname=kandtG2;port=3307', 'root','root');
 } catch (PDOException $exception) {
     die($exception->getMessage());
 }
-$db->exec('SET NAMES UTF8');
+$pdo->exec('SET NAMES UTF8');

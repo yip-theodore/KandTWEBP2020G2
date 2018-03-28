@@ -39,4 +39,36 @@ function displayPage(array $page) : void
 <?php
 }
 
-
+/**
+ * @param PDO $pdo database connection
+ * @param string $slug page slug
+ * @return array|null
+ * @throws Exception SQL query Fed up
+ */
+function getPageContent(\PDO $pdo, string $slug): ?array
+{
+    $sql = "SELECT 
+            `h1`, 
+            `p`, 
+            `span-class`, 
+            `span-text`, 
+            `img-alt`, 
+            `img-src` 
+        FROM 
+          `page` 
+        WHERE 
+          `slug` = :slug
+        LIMIT 1
+        ;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":slug", $slug, PDO::PARAM_STR);
+//    $stmt->execute([':slug' => $slug]); // turdish
+    $stmt->execute();
+    if ($stmt->errorCode() != '00000') {
+        throw new \Exception($stmt->errorInfo()[1]);
+    }
+    if (false === $row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        return null;
+    }
+    return $row;
+}
